@@ -1,3 +1,4 @@
+import facilityImage from "@/assets/images/facility.png";
 import { projects } from "@/data/projects";
 import { tydalCopy } from "@/data/homepage";
 import { Container } from "@/components/layout/Container";
@@ -46,6 +47,8 @@ export const Tydal = () => {
             <GraphicFrame
               label={`${project.name.toUpperCase()} / ${project.yearLabel}`}
               ratio="4 / 3"
+              image={facilityImage}
+              alt="Data center facility conversion in Tydal, Norway"
             />
           </Reveal>
         </div>

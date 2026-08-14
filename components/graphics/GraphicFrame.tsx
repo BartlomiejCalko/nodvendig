@@ -1,3 +1,4 @@
+import Image, { type StaticImageData } from "next/image";
 import { cn } from "@/lib/cn";
 
 type GraphicFrameProps = {
@@ -5,6 +6,9 @@ type GraphicFrameProps = {
   ratio?: string;
   tone?: "light" | "dark";
   className?: string;
+  image?: StaticImageData | string;
+  alt?: string;
+  sizes?: string;
 };
 
 export const GraphicFrame = ({
@@ -12,6 +16,9 @@ export const GraphicFrame = ({
   ratio = "4 / 3",
   tone = "light",
   className,
+  image,
+  alt = "",
+  sizes = "(min-width: 1024px) 42vw, 100vw",
 }: GraphicFrameProps) => (
   <div
     className={cn(
@@ -20,7 +27,7 @@ export const GraphicFrame = ({
       className,
     )}
     style={{ aspectRatio: ratio }}
-    aria-hidden="true"
+    aria-hidden={image ? undefined : true}
   >
     <div
       className="absolute inset-0"
@@ -34,6 +41,17 @@ export const GraphicFrame = ({
         backgroundSize: "40px 40px",
       }}
     />
+    {image ? (
+      <div className="absolute inset-10 bottom-16 overflow-hidden">
+        <Image
+          src={image}
+          alt={alt}
+          fill
+          sizes={sizes}
+          className="object-cover saturate-[0.92]"
+        />
+      </div>
+    ) : null}
     <span
       className={cn(
         "technical-label absolute bottom-4 left-4",
