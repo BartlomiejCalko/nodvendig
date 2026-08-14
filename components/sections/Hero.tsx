@@ -3,8 +3,8 @@
 import { company } from "@/data/company";
 import { heroCopy } from "@/data/hero";
 import { primaryCta } from "@/data/navigation";
+import { ContactButton } from "@/components/contact/ContactTrigger";
 import { Container } from "@/components/layout/Container";
-import { Button } from "@/components/ui/Button";
 import { FacilityPlan } from "@/components/graphics/FacilityPlan";
 import { Reveal } from "@/components/motion/Reveal";
 import { SplitTextReveal } from "@/components/motion/SplitTextReveal";
@@ -42,7 +42,7 @@ export const Hero = () => (
               </p>
             </Reveal>
             <Reveal delay={heroSequence.cta} className="mt-8">
-              <Button href={primaryCta.href}>{primaryCta.label}</Button>
+              <ContactButton>{primaryCta.label}</ContactButton>
             </Reveal>
           </div>
         </div>

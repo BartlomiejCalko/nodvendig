@@ -141,7 +141,10 @@ export type ExperienceEntry = {
   title: string;
   location: string;
   type: string;
+  summary: string;
   status?: "ongoing";
+  yearLabel?: string;
+  href?: string;
 };
 
 export const experienceCopy = {
@@ -155,17 +158,25 @@ export const experienceEntries: ExperienceEntry[] = [
     title: "AI DATA CENTER CONVERSION",
     location: "Tydal, Norway",
     type: "Facility transformation",
+    summary:
+      "Transformation of an existing cryptocurrency mining facility into infrastructure prepared for AI and high-performance computing.",
     status: "ongoing",
+    yearLabel: "2026 — ONGOING",
+    href: "/projects/tydal",
   },
   {
     title: "HYPERSCALE DATA CENTER",
     location: "Greater Oslo Region",
     type: "Repair & construction works",
+    summary:
+      "Repair and construction works in a hyperscale data center environment in the Greater Oslo Region.",
   },
   {
     title: "COLOCATION DATA CENTER",
     location: "Oslo Region",
     type: "Data center construction works",
+    summary:
+      "Data center construction works in a colocation facility in the Oslo Region.",
   },
 ];
 

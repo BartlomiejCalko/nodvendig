@@ -1,8 +1,7 @@
 import { finalCtaCopy } from "@/data/homepage";
-import { projectCta } from "@/data/navigation";
+import { ContactButton } from "@/components/contact/ContactTrigger";
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
-import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/motion/Reveal";
 import { SplitTextReveal } from "@/components/motion/SplitTextReveal";
 
@@ -23,9 +22,9 @@ export const FinalCta = () => (
         <p className="max-w-[36ch] text-body-lg text-ivory/75">
           {finalCtaCopy.body}
         </p>
-        <Button href={projectCta.href} variant="onDark">
+        <ContactButton variant="onDark">
           {finalCtaCopy.cta}
-        </Button>
+        </ContactButton>
       </Reveal>
     </Container>
   </Section>

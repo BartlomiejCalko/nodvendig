@@ -3,6 +3,7 @@ import { GrainOverlay } from "@/components/layout/GrainOverlay";
 import { Header } from "@/components/layout/Header";
 import { SkipLink } from "@/components/layout/SkipLink";
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
+import { ContactProvider } from "@/components/contact/ContactProvider";
 
 type AppShellProps = {
   children: React.ReactNode;
@@ -10,11 +11,13 @@ type AppShellProps = {
 
 export const AppShell = ({ children }: AppShellProps) => (
   <SmoothScroll>
-    <SkipLink />
-    <GrainOverlay />
-    <Header />
-    {children}
-    <Footer />
+    <ContactProvider>
+      <SkipLink />
+      <GrainOverlay />
+      <Header />
+      {children}
+      <Footer />
+    </ContactProvider>
   </SmoothScroll>
 );
 

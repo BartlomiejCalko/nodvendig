@@ -8,7 +8,7 @@ import { company } from "@/data/company";
 import { navigation, primaryCta } from "@/data/navigation";
 import { cn } from "@/lib/cn";
 import { duration, easing, heroSequence } from "@/lib/motion";
-import { Button } from "@/components/ui/Button";
+import { ContactButton, ContactTrigger } from "@/components/contact/ContactTrigger";
 import { Container } from "@/components/layout/Container";
 import { Logo } from "@/components/layout/Logo";
 
@@ -107,17 +107,27 @@ export const Header = () => {
             ease: easing.outExpo,
           }}
         >
-          {navigation.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="group relative text-[13px] tracking-[0.02em] text-carbon"
-            >
-              {item.label}
-              <span className="absolute inset-x-0 -bottom-1 h-px origin-left scale-x-0 bg-carbon transition-transform duration-300 ease-out-expo group-hover:scale-x-100" />
-            </Link>
-          ))}
-          <Button href={primaryCta.href}>{primaryCta.label}</Button>
+          {navigation.map((item) =>
+            item.href === "/contact" ? (
+              <ContactTrigger
+                key={item.href}
+                className="group relative text-[13px] tracking-[0.02em] text-carbon"
+              >
+                {item.label}
+                <span className="absolute inset-x-0 -bottom-1 h-px origin-left scale-x-0 bg-carbon transition-transform duration-300 ease-out-expo group-hover:scale-x-100" />
+              </ContactTrigger>
+            ) : (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="group relative text-[13px] tracking-[0.02em] text-carbon"
+              >
+                {item.label}
+                <span className="absolute inset-x-0 -bottom-1 h-px origin-left scale-x-0 bg-carbon transition-transform duration-300 ease-out-expo group-hover:scale-x-100" />
+              </Link>
+            ),
+          )}
+          <ContactButton>{primaryCta.label}</ContactButton>
         </motion.nav>
 
         <motion.button
@@ -182,18 +192,32 @@ export const Header = () => {
                       ease: easing.outExpo,
                     }}
                   >
-                    <Link
-                      href={item.href}
-                      onClick={handleNavigate}
-                      className="flex items-baseline justify-between py-5"
-                    >
-                      <span className="text-heading-3 font-medium">
-                        {item.label}
-                      </span>
-                      <span className="technical-label text-steel">
-                        {item.index}
-                      </span>
-                    </Link>
+                    {item.href === "/contact" ? (
+                      <ContactTrigger
+                        onClick={handleNavigate}
+                        className="flex w-full items-baseline justify-between py-5"
+                      >
+                        <span className="text-heading-3 font-medium">
+                          {item.label}
+                        </span>
+                        <span className="technical-label text-steel">
+                          {item.index}
+                        </span>
+                      </ContactTrigger>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        onClick={handleNavigate}
+                        className="flex items-baseline justify-between py-5"
+                      >
+                        <span className="text-heading-3 font-medium">
+                          {item.label}
+                        </span>
+                        <span className="technical-label text-steel">
+                          {item.index}
+                        </span>
+                      </Link>
+                    )}
                   </motion.li>
                 ))}
               </ul>
@@ -207,13 +231,12 @@ export const Header = () => {
                   ease: easing.outExpo,
                 }}
               >
-                <Button
-                  href={primaryCta.href}
+                <ContactButton
                   onClick={handleNavigate}
                   className="w-full justify-center"
                 >
                   {primaryCta.label}
-                </Button>
+                </ContactButton>
                 <p className="technical-label mt-6 text-steel">
                   {company.technicalLabel}
                 </p>

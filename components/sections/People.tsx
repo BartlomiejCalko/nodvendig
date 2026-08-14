@@ -1,3 +1,4 @@
+import pafecImage from "@/assets/images/pafec.png";
 import { peopleCopy } from "@/data/homepage";
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
@@ -27,7 +28,13 @@ export const People = () => (
           delay={0.12}
           className="grid grid-cols-2 gap-4 lg:col-span-4 lg:col-start-9"
         >
-          <GraphicFrame label={peopleCopy.frameLabel} ratio="3 / 4" />
+          <GraphicFrame
+            label={peopleCopy.frameLabel}
+            ratio="3 / 4"
+            image={pafecImage}
+            alt="Site team"
+            sizes="(min-width: 1024px) 16vw, 45vw"
+          />
           <GraphicFrame
             label={peopleCopy.frameLabel}
             ratio="3 / 4"
@@ -38,3 +45,4 @@ export const People = () => (
     </Container>
   </Section>
 );
+
