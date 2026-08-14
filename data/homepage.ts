@@ -10,6 +10,7 @@ export type Capability = {
   id: "construction" | "conversion" | "structural" | "execution";
   index: string;
   title: string;
+  description: string;
   zone: string;
 };
 
@@ -18,24 +19,31 @@ export const capabilities: Capability[] = [
     id: "construction",
     index: "01",
     title: "Construction",
+    description: "Physical construction and building works.",
     zone: "STRUCTURE",
   },
   {
     id: "conversion",
     index: "02",
     title: "Conversion",
+    description:
+      "Transformation of existing industrial or data center facilities.",
     zone: "HALL",
   },
   {
     id: "structural",
     index: "03",
     title: "Structural Works",
+    description:
+      "Demolition, walls, structural alterations and technical-space modifications.",
     zone: "GRID",
   },
   {
     id: "execution",
     index: "04",
     title: "Site Execution",
+    description:
+      "Workforce, supervision, coordination and project execution.",
     zone: "SITE",
   },
 ];

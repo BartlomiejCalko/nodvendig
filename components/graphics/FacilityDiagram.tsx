@@ -164,14 +164,11 @@ export const CapabilityList = ({
             onMouseEnter={() => onChange(item.id)}
             onFocus={() => onChange(item.id)}
             className={cn(
-              "flex w-full items-baseline justify-between gap-4 py-5 text-left transition-colors duration-300 ease-out-expo",
+              "flex w-full flex-col items-start gap-3 py-5 text-left transition-colors duration-300 ease-out-expo",
               isActive ? "text-ivory" : "text-ivory/55 hover:text-ivory",
             )}
             aria-pressed={isActive}
           >
-            <span className="text-[1.05rem] tracking-[-0.02em]">
-              {item.title}
-            </span>
             <span
               className={cn(
                 "technical-label",
@@ -179,6 +176,17 @@ export const CapabilityList = ({
               )}
             >
               {item.index}
+            </span>
+            <span className="text-[1.05rem] tracking-[-0.02em]">
+              {item.title}
+            </span>
+            <span
+              className={cn(
+                "max-w-[28ch] text-[0.8125rem] leading-relaxed",
+                isActive ? "text-ivory/70" : "text-ivory/40",
+              )}
+            >
+              {item.description}
             </span>
           </button>
         </li>

@@ -1,95 +1,80 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
 import { company } from "@/data/company";
 import { heroCopy } from "@/data/hero";
 import { primaryCta } from "@/data/navigation";
 import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/Button";
-import { DimensionLine } from "@/components/graphics/DimensionLine";
-import { DrawingMarks } from "@/components/graphics/DrawingMarks";
-import { TechnicalGrid } from "@/components/graphics/TechnicalGrid";
+import { FacilityPlan } from "@/components/graphics/FacilityPlan";
 import { Reveal } from "@/components/motion/Reveal";
 import { SplitTextReveal } from "@/components/motion/SplitTextReveal";
-import { duration, easing, heroSequence } from "@/lib/motion";
+import { heroSequence } from "@/lib/motion";
 
-export const Hero = () => {
-  const prefersReducedMotion = useReducedMotion();
+export const Hero = () => (
+  <section
+    data-hero
+    aria-labelledby="hero-heading"
+    className="flex min-h-svh flex-col bg-ivory"
+  >
+    <div className="flex min-h-[42svh] flex-1 flex-col pt-[90px]">
+      <Container className="flex flex-1 items-end py-10 md:py-12 lg:py-14">
+        <div className="grid w-full grid-cols-1 items-end gap-8 lg:grid-cols-12 lg:gap-10">
+          <h1
+            id="hero-heading"
+            className="text-display-xl max-w-[11ch] font-medium text-carbon lg:col-span-7"
+          >
+            <SplitTextReveal delay={heroSequence.line1}>
+              {heroCopy.line1}
+            </SplitTextReveal>
+            <SplitTextReveal delay={heroSequence.line2}>
+              {heroCopy.line2}
+              <span className="text-accent">.</span>
+            </SplitTextReveal>
+          </h1>
 
-  return (
-    <section
-      data-hero
-      aria-labelledby="hero-heading"
-      className="relative isolate min-h-svh overflow-hidden bg-ivory"
-    >
-      <TechnicalGrid className="hero-grid" />
-      <DrawingMarks />
-
-      <motion.p
-        aria-hidden="true"
-        className="technical-label pointer-events-none absolute top-1/2 right-3 hidden origin-center -translate-y-1/2 rotate-90 text-steel md:right-5 lg:block"
-        initial={prefersReducedMotion ? false : { opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{
-          duration: duration.editorial,
-          delay: heroSequence.marker,
-          ease: easing.outExpo,
-        }}
-      >
-        {heroCopy.sheetLabel}
-      </motion.p>
-
-      <Container className="relative flex min-h-svh flex-col pt-[90px]">
-        <div className="grid flex-1 grid-cols-1 items-end gap-12 py-10 md:gap-16 lg:grid-cols-12 lg:gap-8 lg:py-12">
-          <div className="relative lg:col-span-8">
-            <DimensionLine
-              label={heroCopy.dimensionLabel}
-              delay={heroSequence.line2}
-              className="absolute top-3 bottom-2 -left-8 hidden lg:flex xl:-left-10"
-            />
-            <h1
-              id="hero-heading"
-              className="text-display-xxl max-w-[11ch] font-medium text-carbon"
-            >
-              <SplitTextReveal delay={heroSequence.line1}>
-                {heroCopy.line1}
-              </SplitTextReveal>
-              <SplitTextReveal delay={heroSequence.line2}>
-                {heroCopy.line2}
-                <span className="text-accent">.</span>
-              </SplitTextReveal>
-            </h1>
-          </div>
-
-          <div className="lg:col-span-4 lg:col-start-9 lg:pb-2">
+          <div className="lg:col-span-4 lg:col-start-9">
             <Reveal delay={heroSequence.copy}>
-              <p className="text-body-lg max-w-[22ch] font-medium text-carbon">
+              <p className="max-w-[36ch] text-[1.05rem] leading-snug text-carbon md:text-[1.15rem]">
                 {heroCopy.supporting}
               </p>
-              <p className="mt-6 max-w-[28ch] text-[0.95rem] leading-relaxed text-steel md:text-base">
+              <p className="mt-4 max-w-[36ch] text-[0.95rem] leading-relaxed text-steel">
                 {heroCopy.secondary}
               </p>
             </Reveal>
-            <Reveal delay={heroSequence.cta} className="mt-8 md:mt-10">
+            <Reveal delay={heroSequence.cta} className="mt-8">
               <Button href={primaryCta.href}>{primaryCta.label}</Button>
             </Reveal>
           </div>
         </div>
+      </Container>
+    </div>
 
+    <div className="flex min-h-[46svh] flex-[1.2] bg-carbon">
+      <Container className="grid w-full grid-cols-1 gap-8 py-8 lg:grid-cols-12 lg:items-stretch lg:gap-8 lg:py-10">
         <Reveal
           delay={heroSequence.marker}
-          className="flex items-end justify-between gap-6 border-t border-line py-5 md:py-6"
+          className="flex flex-col justify-between lg:col-span-3 lg:py-2"
         >
-          <p className="technical-label flex items-center gap-2 text-steel">
+          <p className="technical-label flex items-center gap-2 text-ivory/55">
             <span aria-hidden="true" className="size-1.5 bg-accent" />
             {company.technicalLabel}
           </p>
-          <p className="technical-label hidden items-center gap-3 text-steel sm:flex">
+          <p className="technical-label hidden items-center gap-3 text-ivory/45 lg:flex">
             {heroCopy.scrollLabel}
-            <span aria-hidden="true" className="inline-block h-6 w-px bg-carbon/35" />
+            <span
+              aria-hidden="true"
+              className="inline-block h-6 w-px bg-ivory/30"
+            />
           </p>
         </Reveal>
+
+        <Reveal
+          delay={heroSequence.cta}
+          className="flex items-center lg:col-span-9"
+        >
+          <FacilityPlan />
+        </Reveal>
       </Container>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
