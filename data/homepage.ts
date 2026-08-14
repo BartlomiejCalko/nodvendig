@@ -53,6 +53,10 @@ export const positioningCopy = {
   line1: "We build the environment",
   line2: "around critical infrastructure.",
   body: "Nødvendig delivers construction, structural modification and site execution for data center projects — working alongside critical infrastructure specialists to turn complex technical requirements into physical reality.",
+  image: {
+    alt: "Data center facility in Tydal, Norway",
+    caption: "TYDAL / NORWAY",
+  },
 } as const;
 
 export type Chapter = {
