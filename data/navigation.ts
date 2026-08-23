@@ -5,11 +5,9 @@ export type NavItem = {
 };
 
 export const navigation: NavItem[] = [
-  { label: "Expertise", href: "/expertise", index: "01" },
-  { label: "Projects", href: "/projects", index: "02" },
-  { label: "About", href: "/about", index: "03" },
-  { label: "Careers", href: "/careers", index: "04" },
-  { label: "Contact", href: "/contact", index: "05" },
+  { label: "Projects", href: "/projects", index: "01" },
+  { label: "About", href: "/about", index: "02" },
+  { label: "Contact", href: "/contact", index: "03" },
 ];
 
 export const primaryCta = {
