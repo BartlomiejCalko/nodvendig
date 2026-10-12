@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const routes = [
     "",
+    "/construction",
     ...navigation.map((item) => item.href),
     ...projects.map((project) => `/projects/${project.slug}`),
   ];

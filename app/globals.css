@@ -8,6 +8,8 @@
   --color-graphite: #292926;
   --color-steel: #706f69;
   --color-accent: #ff6747;
+  --color-signal: #5fe3ff;
+  --color-void: #05070a;
   --color-line: rgb(28 28 26 / 0.16);
   --color-line-dark: rgb(255 255 255 / 0.14);
 
@@ -181,5 +183,14 @@
   [data-reveal] {
     transform: none !important;
     opacity: 1 !important;
+  }
+}
+
+@keyframes scroll-hint {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(250%);
   }
 }

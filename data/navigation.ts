@@ -7,7 +7,8 @@ export type NavItem = {
 export const navigation: NavItem[] = [
   { label: "Projects", href: "/projects", index: "01" },
   { label: "About", href: "/about", index: "02" },
-  { label: "Contact", href: "/contact", index: "03" },
+  { label: "Telecom", href: "/telecom", index: "03" },
+  { label: "Contact", href: "/contact", index: "04" },
 ];
 
 export const primaryCta = {

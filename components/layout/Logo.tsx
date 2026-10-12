@@ -9,7 +9,7 @@ type LogoProps = {
 
 export const Logo = ({ className, onClick }: LogoProps) => (
   <Link
-    href="/"
+    href="/construction"
     aria-label={`${company.shortName} home`}
     onClick={onClick}
     className={cn(

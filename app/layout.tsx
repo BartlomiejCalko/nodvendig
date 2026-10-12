@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { AppShell } from "@/components/layout/AppShell";
 import { organizationSchema } from "@/data/company";
 import { geistMono, geistSans } from "@/lib/fonts";
 import "./globals.css";
@@ -37,7 +36,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             __html: JSON.stringify(organizationSchema),
           }}
         />
-        <AppShell>{children}</AppShell>
+        {children}
       </body>
     </html>
   );
