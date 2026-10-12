@@ -8,6 +8,7 @@ import { useReducedMotion } from "motion/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { company, contact } from "@/data/company";
+import { gatewayLink } from "@/data/navigation";
 import { telecomChapters, telecomCta, telecomOverlays, type TelecomOverlay } from "@/data/telecom";
 import { cn } from "@/lib/cn";
 import { range } from "@/components/three/math";
@@ -329,7 +330,20 @@ export const TelecomExperience = () => {
           <span className="text-[15px] font-medium tracking-[0.08em]">{company.wordmark}</span>
           <span className="technical-label text-signal">Telecom</span>
         </Link>
-        <nav aria-label="Primary" className="flex items-center gap-6 text-[13px] tracking-[0.02em]">
+        <nav aria-label="Primary" className="flex items-center gap-4 text-[13px] tracking-[0.02em] sm:gap-6">
+          <Link
+            href={gatewayLink.href}
+            aria-label={gatewayLink.label}
+            className="technical-label group inline-flex items-center gap-2 border-[color:var(--hud-dim)] opacity-70 transition-opacity hover:opacity-100 sm:border-r sm:pr-6"
+          >
+            <span
+              aria-hidden="true"
+              className="text-[15px] transition-transform duration-300 ease-out-expo group-hover:-translate-x-1 sm:text-[12px]"
+            >
+              ←
+            </span>
+            <span className="hidden sm:inline">{gatewayLink.label}</span>
+          </Link>
           <Link href="/construction" className="hidden opacity-70 transition-opacity hover:opacity-100 sm:inline">
             Constructions
           </Link>
@@ -350,7 +364,7 @@ export const TelecomExperience = () => {
       {/* Scroll hint */}
       <div
         ref={hintRef}
-        className="pointer-events-none fixed bottom-8 left-1/2 z-20 flex -translate-x-1/2 flex-col items-center gap-3 text-carbon"
+        className="pointer-events-none fixed bottom-8 left-1/2 z-20 hidden -translate-x-1/2 flex-col items-center gap-3 text-carbon sm:flex"
         aria-hidden="true"
       >
         <span className="technical-label">Scroll to follow the signal</span>

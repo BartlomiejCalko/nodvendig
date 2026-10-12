@@ -5,7 +5,7 @@ import Link from "next/link";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useLenis } from "lenis/react";
 import { company } from "@/data/company";
-import { navigation, primaryCta } from "@/data/navigation";
+import { gatewayLink, navigation, primaryCta } from "@/data/navigation";
 import { cn } from "@/lib/cn";
 import { duration, easing, heroSequence } from "@/lib/motion";
 import { ContactButton, ContactTrigger } from "@/components/contact/ContactTrigger";
@@ -107,6 +107,18 @@ export const Header = () => {
             ease: easing.outExpo,
           }}
         >
+          <Link
+            href={gatewayLink.href}
+            className="technical-label group inline-flex items-center gap-2 border-r border-line pr-8 text-steel transition-colors duration-300 hover:text-carbon"
+          >
+            <span
+              aria-hidden="true"
+              className="transition-transform duration-300 ease-out-expo group-hover:-translate-x-1"
+            >
+              ←
+            </span>
+            {gatewayLink.label}
+          </Link>
           {navigation.map((item) =>
             item.href === "/contact" ? (
               <ContactTrigger
@@ -177,6 +189,20 @@ export const Header = () => {
               aria-label="Mobile"
               className="flex flex-1 flex-col justify-end px-[clamp(18px,3vw,56px)] pt-[90px] pb-10"
             >
+              <motion.div
+                initial={prefersReducedMotion ? false : { opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.45, ease: easing.outExpo }}
+              >
+                <Link
+                  href={gatewayLink.href}
+                  onClick={handleNavigate}
+                  className="technical-label mb-6 inline-flex items-center gap-2 text-steel"
+                >
+                  <span aria-hidden="true">←</span>
+                  {gatewayLink.label}
+                </Link>
+              </motion.div>
               <ul className="flex flex-col border-t border-line">
                 {navigation.map((item, index) => (
                   <motion.li

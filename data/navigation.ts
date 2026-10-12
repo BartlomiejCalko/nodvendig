@@ -11,6 +11,12 @@ export const navigation: NavItem[] = [
   { label: "Contact", href: "/contact", index: "04" },
 ];
 
+/** Back to the gateway where visitors choose a division. */
+export const gatewayLink = {
+  label: "All divisions",
+  href: "/",
+} as const;
+
 export const primaryCta = {
   label: "Discuss a project",
   href: "/contact",
